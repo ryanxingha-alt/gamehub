@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Successful</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="success-box">
+
+<h1>✅ Order Successful!</h1>
+
+<p>Your game has been added to your library.</p>
+
+<h2 id="price"></h2>
+
+<div class="buttons">
+<a href="library.html">Go to Library</a>
+<a href="index.html">Back to Store</a>
+
+<button onclick="cancelOrder()">Cancel Order</button>
+</div>
+
+</div>
+
+<script>
+
+let lastGame = JSON.parse(localStorage.getItem("lastGame"));
+
+if(lastGame){
+document.getElementById("price").innerHTML =
+"Price Paid: ₹" + lastGame.price;
+}
+
+function cancelOrder(){
+
+let library = JSON.parse(localStorage.getItem("library")) || [];
+
+library.pop();
+
+localStorage.setItem("library", JSON.stringify(library));
+
+alert("Order Cancelled Successfully");
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+</html>

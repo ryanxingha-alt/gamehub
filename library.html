@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GameHub Library</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>📚 My Library</h1>
+<a class="cart" href="index.html">Store</a>
+</header>
+
+<h2 id="successMsg" style="text-align:center;color:lightgreen;"></h2>
+
+<section id="libraryList"></section>
+
+<h2 id="total" style="text-align:center;"></h2>
+
+<div style="text-align:center;margin:20px;">
+<button onclick="clearLibrary()">Cancel All Orders</button>
+</div>
+
+<script>
+
+function loadLibrary(){
+
+let library = JSON.parse(localStorage.getItem("library")) || [];
+
+let container = document.getElementById("libraryList");
+
+let total = 0;
+
+container.innerHTML = "";
+
+if(library.length === 0){
+
+container.innerHTML = "<h2 style='text-align:center'>No games in library</h2>";
+document.getElementById("total").innerHTML = "";
+return;
+
+}
+
+document.getElementById("successMsg").innerHTML =
+"✅ Order Successful! Game added to library.";
+
+library.forEach((game,index)=>{
+
+let price = Number(game.price) || 0;
+
+container.innerHTML += `
+<div class="library-item">
+
+<img src="${game.img}" width="200">
+
+<div>
+<h3>${game.name}</h3>
+<p>₹${price}</p>
+</div>
+
+<button onclick="removeGame(${index})">
+Cancel Order
+</button>
+
+</div>
+`;
+
+total += price;
+
+});
+
+document.getElementById("total").innerHTML =
+"Total Paid: ₹" + total;
+
+}
+
+function removeGame(i){
+
+let library = JSON.parse(localStorage.getItem("library")) || [];
+
+let removedGame = library[i].name;
+
+library.splice(i,1);
+
+localStorage.setItem("library",JSON.stringify(library));
+
+alert("❌ " + removedGame + " order cancelled");
+
+loadLibrary();
+
+}
+
+function clearLibrary(){
+
+if(confirm("Cancel all orders?")){
+
+localStorage.removeItem("library");
+
+alert("All orders cancelled ❌");
+
+location.reload();
+
+}
+
+}
+
+loadLibrary();
+
+</script>
+
+</body>
+</html>

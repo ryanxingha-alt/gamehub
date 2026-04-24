@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GameHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>🎮 GameHub</h1>
+<a class="cart" href="library.html">Library</a>
+</header>
+
+<section class="grid">
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg">
+<h3>Red Dead Redemption 2</h3>
+<p>Western open world masterpiece</p>
+<span>₹1899</span>
+<button onclick="buyGame('Red Dead Redemption 2',1899,'https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg')">place order</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg">
+<h3>Elden Ring</h3>
+<p>Dark fantasy action RPG</p>
+<span>₹1999</span>
+<button onclick="buyGame('Elden Ring',1999,'https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg')">place order</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg">
+<h3>Cyberpunk 2077</h3>
+<p>Futuristic open world RPG</p>
+<span>₹1399</span>
+<button onclick="buyGame('Cyberpunk 2077',1399,'https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg">
+<h3>The Witcher 3</h3>
+<p>Best story RPG ever made</p>
+<span>₹799</span>
+<button onclick="buyGame('The Witcher 3',799,'https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/header.jpg">
+<h3>Resident Evil Village</h3>
+<p>Horror survival experience</p>
+<span>₹1499</span>
+<button onclick="buyGame('Resident Evil Village',1499,'https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/header.jpg')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/883710/header.jpg">
+<h3>Resident Evil 2 Remake</h3>
+<p>Classic horror remake</p>
+<span>₹1299</span>
+<button onclick="buyGame('Resident Evil 2 Remake',1299,'https://cdn.cloudflare.steamstatic.com/steam/apps/883710/header.jpg')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg">
+<h3>Baldur's Gate 3</h3>
+<p>Ultimate RPG experience</p>
+<span>₹2499</span>
+<button onclick="buyGame('Baldurs Gate 3',2499,'https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg">
+<h3>God of War</h3>
+<p>Mythology action adventure</p>
+<span>₹1599</span>
+<button onclick="buyGame('God of War',1599,'https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg">
+<h3>DOOM Eternal</h3>
+<p>Fast FPS action shooter</p>
+<span>₹899</span>
+<button onclick="buyGame('DOOM Eternal',899,'https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg')">Buy</button>
+</div>
+
+</section>
+
+<script>
+
+function buyGame(name,price,img){
+
+let library = JSON.parse(localStorage.getItem("library")) || [];
+
+library.push({
+name:name,
+price:price,
+img:img
+});
+
+localStorage.setItem("library",JSON.stringify(library));
+
+alert("✅ Order Successful!");
+
+}
+
+</script>
+
+</body>
+</html>

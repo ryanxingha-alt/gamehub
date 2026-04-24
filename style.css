@@ -1,0 +1,126 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial;
+}
+
+body{
+background:
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url("https://images.unsplash.com/photo-1542751371-adc38448a05e");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.cart{
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,0.08);
+padding:10px 20px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.15);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+padding:50px;
+}
+
+/* STORE CARD (GLASS) */
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,0.12);
+border-radius:16px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+}
+
+.card img{
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.card h3{padding:10px;}
+.card p{padding:0 10px;color:#ddd;}
+.card span{padding:0 10px;color:#00ffcc;font-weight:bold;}
+
+.card button{
+margin:10px;
+width:calc(100% - 20px);
+padding:10px;
+border:none;
+border-radius:8px;
+background:linear-gradient(45deg,#00ffcc,#00b3ff);
+cursor:pointer;
+}
+
+/* LIBRARY GLASS */
+#libraryList{
+max-width:1000px;
+margin:auto;
+padding:40px;
+}
+
+.library-item{
+display:flex;
+gap:20px;
+align-items:center;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,0.12);
+border-radius:16px;
+
+padding:20px;
+margin-bottom:20px;
+}
+
+.library-item img{
+width:180px;
+height:100px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.library-info{
+flex:1;
+}
+
+.library-info span{
+color:#00ffcc;
+}
+
+.library-item button{
+background:red;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+}
